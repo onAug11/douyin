@@ -4,9 +4,9 @@ class Ta {
     
     public function __construct() {
         if ($_SERVER['HTTP_HOST'] == 'localhost') {
-            require('/Applications/phpstudy/WWW/douyin/MySql.php');
+            require_once('/Applications/phpstudy/WWW/douyin/MySql.php');
         } else {
-            require('/www/wwwroot/'.$_SERVER['SERVER_NAME'].'/MySql.php');
+            require_once('/www/wwwroot/'.$_SERVER['SERVER_NAME'].'/MySql.php');
         }
         
         $this->conn = new mysqli($servername, $username, $password, $dbname);
@@ -14,7 +14,7 @@ class Ta {
     
     public function get_ta_info($dy) {
         if ($_SERVER['HTTP_HOST'] == 'localhost') {
-            require('/Applications/phpstudy/WWW/douyin/curl.php');
+            require_once('/Applications/phpstudy/WWW/douyin/curl.php');
         } else {
             require_once('/www/wwwroot/'.$_SERVER['SERVER_NAME'].'/curl.php');
         }
