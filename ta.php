@@ -48,7 +48,7 @@ if ($server) {
         if ($aweme && $key == 'onAug11') {
             require_once('./class/dl.class.php');
             $dl = new Dl();
-            $dl->dl_video($dy, 1);
+            $dl->dlVideo($dy, 1);
         }
     } else {
         if ($signature) {
