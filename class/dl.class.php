@@ -5,7 +5,7 @@ class Dl {
         
     }
     
-    public function dl_video($dy, $type) {
+    public function dlVideo($dy, $type) {
         if ($_SERVER['HTTP_HOST'] == 'localhost') {
             require_once('/Applications/phpstudy/WWW/douyin/curl.php');
         } else {
@@ -20,7 +20,7 @@ class Dl {
                     $total_new = 0;
                     $total_old = 0;
                     do {
-                        $video_info = $this->get_video_list($sec_uid[0], $max_cursor);
+                        $video_info = $this->getVideoList($sec_uid[0], $max_cursor);
                         $aweme_list = $video_info['aweme_list'];
                         if ($max_cursor == 0) {
                             $author = $aweme_list[0]['author']['nickname'];
@@ -64,7 +64,7 @@ class Dl {
                     $loc = get_headers($url[0], true)['location'];
                     $start = 'video/';
                     $end = '/?region';
-                    $id = $this->get_id($loc,$start,$end);
+                    $id = $this->getId($loc,$start,$end);
                     $arr = json_decode(get_url("https://www.iesdouyin.com/web/api/v2/aweme/iteminfo/?item_ids=$id"), true);
                     preg_match('/href="(.*?)">Found/', get_url(str_replace('playwm', 'play', $arr['item_list'][0]["video"]["play_addr"]["url_list"][0])), $matches);
                     
@@ -101,7 +101,7 @@ class Dl {
     }
     
     // 获取视频列表
-    private function get_video_list($sec_uid, $max_cursor) {
+    private function getVideoList($sec_uid, $max_cursor) {
         $url = 'https://www.iesdouyin.com/web/api/v2/aweme/post/?sec_uid='.$sec_uid.'&max_cursor='.$max_cursor.'&count=2000';
         do {
             $res = json_decode(get_url($url), true);
@@ -110,7 +110,7 @@ class Dl {
     }
     
     // 获取视频id
-    function get_id($content,$start,$end) {
+    private function getId($content,$start,$end) {
         $r = explode($start, $content);
         if (isset($r[1])) {
         $r = explode($end, $r[1]);

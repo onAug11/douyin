@@ -12,7 +12,7 @@ $xh = $_GET['xh'];
 $key = $_GET['key'];
 
 $ta = new Ta();
-$res = $ta->get_ta_info($dy);
+$res = $ta->getTaInfo($dy);
 if ($server) {
     $server = substr($server, -1) == '/' ? $server : $server.'/';
     $uid = $res['data']['uid'];

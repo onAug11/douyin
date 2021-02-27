@@ -12,7 +12,7 @@ class Ta {
         $this->conn = new mysqli($servername, $username, $password, $dbname);
     }
     
-    public function get_ta_info($dy) {
+    public function getTaInfo($dy) {
         if ($_SERVER['HTTP_HOST'] == 'localhost') {
             require_once('/Applications/phpstudy/WWW/douyin/curl.php');
         } else {
@@ -33,8 +33,8 @@ class Ta {
                 $aweme_count = $user_info['aweme_count']; // 作品数
                 $favoriting_count = $user_info['favoriting_count']; // 喜欢作品数
                 
-                $nickname_encode = $this->emoji_encode($nickname);
-                $signature_encode = $this->emoji_encode($signature);
+                $nickname_encode = $this->emojiEncode($nickname);
+                $signature_encode = $this->emojiEncode($signature);
                 
                 $sql = "select following_count, follower_count, total_favorited, aweme_count, favoriting_count from douyin_ta where uid = '$uid'";
                 $result = $this->conn->query($sql);
@@ -116,7 +116,7 @@ class Ta {
     }
     
     // 对emoji表情转义
-    private function emoji_encode($str){
+    private function emojiEncode($str){
         $strEncode = '';
      
         $length = mb_strlen($str,'utf-8');
@@ -134,7 +134,7 @@ class Ta {
     }
     
     // 对emoji表情转反义
-    private function emoji_decode($str){
+    private function emojiDecode($str){
         $strDecode = preg_replace_callback('|\[\[EMOJI:(.*?)\]\]|', function($matches){  
             return rawurldecode($matches[1]);
         }, $str);

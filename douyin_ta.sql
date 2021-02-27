@@ -1,17 +1,17 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : localhost
+ Source Server         : api
  Source Server Type    : MySQL
- Source Server Version : 50728
- Source Host           : localhost:3306
+ Source Server Version : 50733
+ Source Host           : 81.70.16.87:3306
  Source Schema         : api
 
  Target Server Type    : MySQL
- Target Server Version : 50728
+ Target Server Version : 50733
  File Encoding         : 65001
 
- Date: 12/02/2021 18:07:44
+ Date: 27/02/2021 12:52:47
 */
 
 SET NAMES utf8mb4;
@@ -33,9 +33,9 @@ CREATE TABLE `douyin_ta` (
   `total_favorited` int(11) NOT NULL DEFAULT '0' COMMENT '被点赞数',
   `aweme_count` int(11) NOT NULL DEFAULT '0' COMMENT '作品数',
   `favoriting_count` int(11) NOT NULL DEFAULT '0' COMMENT '喜欢作品数',
-  `add_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '添加时间',
-  `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  `addTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '添加时间',
+  `updateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 SET FOREIGN_KEY_CHECKS = 1;
