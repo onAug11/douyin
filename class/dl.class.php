@@ -61,7 +61,7 @@ class Dl {
                         'msg' => '下载成功'
                     );
                 } else {
-                    $loc = get_headers($url[0], true)['Location'];
+                    $loc = get_headers($url[0], true)['location'];
                     $start = 'video/';
                     $end = '/?region';
                     $id = $this->getId($loc,$start,$end);
